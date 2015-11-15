@@ -18,7 +18,7 @@ cli.setUsage(
 );
 
 cli.parse({
-	config: ['c', 'Config file', 'string', './config/migrations.js'],
+	config: ['c', 'Config file', 'string', './etc/config/migrations.js'],
 	dir: ['d', 'Working folder', 'string', '.'],
 	migrations: ['m', 'Folder storing the migrations', 'string', './migrations']
 });
@@ -31,7 +31,7 @@ cli.main(function (args, options) {
 	var action = args[0],
 		name = args[1],
 		cwd = options.dir ? path.resolve(options.dir) : process.cwd(),
-		config = options.config || './config/migrations.js',
+		config = options.config || './etc/config/migrations.js',
 		migrations = options.migrations || './migrations';
 
 	if (path.resolve(config) !== config) {
